@@ -2,3 +2,13 @@
   Переменные для вашего проекта
   и их переопределение под различные устройства
 */
+:root {
+  --menu-color: #FF0070;
+  --accent-color: #FF0070;
+  --accent-bg-color: #FF0070;
+  --bg-color: #000028;
+  --section-title-color: #FF0070;
+  --article-text-color: #F1B2CE;
+  --cover-titrle-color: #DB00FF;
+  --main-padding: 20px;
+}
