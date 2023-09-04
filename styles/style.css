@@ -1,9 +1,8 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-* {
-  user-select: none;
-}
 .page {
-  margin: 0;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
 }
 
@@ -11,9 +10,10 @@
   display: flex;
   flex-direction: column;
   padding: var(--main-padding);
-  background-image: url(../images/cover-image-dark.png);
+  background-image: var(--bg-image);
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
 }
 
 .header__decorations {
@@ -23,13 +23,14 @@
 
 .header__theme-menu {
   display: grid;
-  margin-inline-start: calc(50vw - 130px);
+  margin-inline-start: calc(31.5rem - 130px); /* слишком жестко */
 }
 
 .header__theme-menu-list{
   display: grid;
   width: 230px;
   height: 100%;
+  gap: 10px;
   grid-template-columns: repeat(3, 1fr);
   justify-content: space-between;
 }
@@ -55,28 +56,35 @@
   cursor: pointer;
 }
 
-.header__theme-menu-button:focus {
+.header__theme-menu-button:focus,
+.header__theme-menu-button:focus-visible {
   outline: none;
 }
 
-.header__theme-menu-button:focus-visible {
-  outline: 1px solid var(--menu-color);
+.header__theme-menu-item:has(.header__theme-menu-button:focus) {
+  outline: none;
+  border-block-end: 1px solid var(--menu-color);
+}
+
+.header__theme-menu-item:has(.header__theme-menu-button:focus-visible) {
+  outline: none;
+  border-block-end: 1px solid var(--menu-color);
+}
+
+.header__theme-menu-item:has(.header__theme-menu-button:hover) {
+  border: 1px solid var(--menu-color-hovered);
 }
 
 .header__theme-menu-item:has(.header__theme-menu-button:active) {
-  outline: 1px solid var(--menu-color);
+  border: 1px solid var(--menu-color);
 }
 
-.header__theme-menu-item:has(.header__theme-menu-button:hover):hover {
-  outline: 1px solid var(--menu-color);
+.header__theme-menu-button:default {
+  border: 1px solid var(--menu-color);
 }
 
 .header__theme-menu-item:has(.header__theme-menu-button:disabled) {
-  outline: 1px solid var(--menu-color);
-}
-
-.header__theme-menu-item:has(.header__theme-menu-button:enabled) {
-  outline: none;
+  border: 1px solid var(--menu-color);
 }
 
 .border-top-right{
@@ -115,22 +123,22 @@
 }
 
 .header__title {
-  color: var(--cover-titrle-color,#DB00FF);
+  color: var(--cover-title-color,#DB00FF);
   text-shadow: 4px 4px 0px #FF0070;
   font-family: 'IBM Plex Mono', sans-serif;
   font-size: 157px;
   font-weight: bold;
   line-height: 82.5%;
   margin-inline-start: calc(0px - var(--main-padding));
-  margin-block-start: 27vh;
+  margin-block-start: 27vw;
 }
 
 .header__description {
   display: block;
-  background-color: var(--accent-bg-color, #FF0070);
-  margin-block-start: 12%;
-  margin-inline-start: 48vw;
-  margin-block-end: 9%;
+  background-color: var(--accent-bg-color);
+  margin-block-start: 11vw;
+  margin-inline-start: 64vh;
+  margin-block-end: 9vw;
 }
 
 .border-bootom-left {
@@ -145,7 +153,7 @@
   display: grid;
   gap: 20px;
   padding-block-start: 60px;
-  padding-block-end: 60px;
+  padding-block-end: 20px;
   background-color: var(--bg-color);
 }
 
@@ -168,6 +176,12 @@
 .section__article-list {
   display: flex;
   flex-direction: column;
+  gap: 20px;
+}
+
+.horizontal-article-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
@@ -203,10 +217,10 @@
   line-height: 130%; 
 }
 
-.section__picture-list {
+/*.section__picture-list {
   display: grid;
-  grid-template-columns: repeat(3, fit-content(650px));
-  grid-template-rows: repeat(3, fit-content(768px));
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(3, auto);
   grid-template-areas: 
   "sunset-picture sunset-picture ice-cream-picture"
   "tape-picture books-picture ice-cream-picture"
@@ -229,6 +243,10 @@
   grid-area: sunset-picture;
 }
 
+.street-picture {
+  grid-area: street-picture;
+}
+
 .ice-cream-picture {
   grid-area: ice-cream-picture;
 }
@@ -239,8 +257,71 @@
 
 .books-picture {
   grid-area: books-picture;
+}*/
+
+.section__picture-list {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(3, auto);
+  gap: 1.5%;
+} 
+
+.article__picture {
+  margin: 0;
+}
+
+.article__picture-item {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.sunset-picture {
+  grid-column: span 2;
 }
 
 .street-picture {
-  grid-area: street-picture;
+  grid-column: span 2;
+}
+
+.ice-cream-picture {
+  grid-row: span 2;
+}
+
+.tape-picture {
+  grid-row: span 2;
+}
+
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  padding: var(--main-padding);
+  align-items: center;
+  background-color: var(--bg-color);
+  padding-block-start: 60px;
+  padding-block-end: 20px;
+}
+
+.footer__title {
+  color: var(--cover-title-color);
+  text-shadow: 2px 2px 0px var(--cover-title-shadow-color);
+  font-family: 'IBM Plex Mono', sans-serif;
+  font-size: 157px;
+  font-weight: bold;
+  line-height: 82.5%;
+  margin-block: 35vh;
+}
+
+.footer__decoration-top {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.footer__decoration-bottom {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
 }
