@@ -2,20 +2,25 @@
 .page {
   display: flex;
   flex-direction: column;
-  margin: auto;
   background-image: var(--bg-image);
-  background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
+  inline-size: 100%;
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+}
+
+.header,
+.section,
+.footer {
+  inline-size: 100%;
+  padding: var(--main-padding);
 }
 
 .header {
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: var(--main-padding);
-  inline-size: 100%;
 }
 
 .header__decorations {
@@ -155,7 +160,6 @@
 
 .header__description {
   display: flex;
-  inline-size: min(491px);
   margin-inline: auto 0;
   margin-block: 114px calc(114px + var(--main-padding));
 }
@@ -164,17 +168,15 @@
 .section:not(:last-child) {
   display: grid;
   gap: 20px;
-  padding-inline: var(--main-padding);
   padding-block-start: 60px;
-  padding-block-end: 20px;
 }
 
 .horizontal-section {
-  grid-template-columns: 32% auto;
+  grid-template-columns: 32vw auto;
 }
 
 .vertical-section__title {
-  width: 32%;
+  width: 32vw;
 }
 
 .section__title {
@@ -227,7 +229,7 @@
   font-family: 'IBM Plex Mono',sans-serif;
   font-weight: normal;
   font-size: 18px;
-  line-height: 130%; 
+  line-height: 130%;
 }
 
 .show__link {
@@ -255,7 +257,6 @@
 .section:last-child {
   display: grid;
   gap: 20px;
-  padding-inline: var(--main-padding);
   padding-block: 60px;
 }
 
@@ -279,8 +280,8 @@
 }
 
 .article__picture-item:hover {
-  transform: scale(1.03);
   transition: 1s;
+  transform: scale(1.03);
 }
 
 .sunset-picture {
@@ -299,22 +300,21 @@
   grid-row: span 2;
 }
 
-
 .footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: var(--main-padding);
-  padding-block-start: 60px;
+  height: 768px;
+  justify-content: space-between;
 }
 
 .footer__title {
   color: var(--cover-title-color);
-  text-shadow: 2px 2px 0px #FF0070;
   font-family: 'IBM Plex Mono', sans-serif;
-  font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);;
   font-weight: bold;
+  font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   line-height: 82.5%;
+  text-shadow: 2px 2px 0px #FF0070;
 }
 
 .footer__decoration-top {
@@ -337,8 +337,8 @@
   }
 
   .header__theme-menu-list {
-    margin-block-start: calc(25.2vw - var(--main-padding) - 26px);
-    flex-direction: column;  
+    flex-direction: column;
+    margin-block-start: calc(25.2vw - var(--main-padding) - 26px);  
   }
 
   .cover__title {
@@ -346,11 +346,11 @@
   }
 
   .header__description {
-    margin-block: 21vw calc(21vw - var(--main-padding));
     margin-inline: auto 0;
-    inline-size: min(50vw - var(--main-padding));
+    margin-block: 21vw calc(21vw - var(--main-padding));
     margin-block-start: min(21vw);
     margin-block-end: min(18vw);
+    inline-size: min(50vw - var(--main-padding));
   }
 
   .horizontal-article-list {
@@ -372,21 +372,19 @@
   }
 
   .header__theme-menu-list {
-    margin-block-start: calc(14vw - var(--main-padding));
-    flex-direction: column;  
+    flex-direction: column;
+    margin-block-start: calc(14vw - var(--main-padding));  
   }
 
   .header__description {
     margin-inline: auto 0;
-    inline-size: min(355px);
-    margin-block-start: 15vw;
-    margin-block-end: 8vw;
+    margin-block-start: 15vw 8vw;
   }
 
   .cover__title {
-    font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
     margin-inline: 0;
     margin-block-start: 18vw;
+    font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   }
 
   .section__title {
@@ -395,11 +393,12 @@
 
   .footer__title {
     font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+    margin-block: 286px;
   }
 
   .horizontal-section {
-    grid-template-rows: min-content 1fr;
     grid-template-columns: 1fr;
+    grid-template-rows: min-content 1fr;
   }
 
   .horizontal-article-list {
@@ -408,8 +407,7 @@
   }
 
   .section:not(:last-child) {
-    padding-block-start: 40px;
-    padding-block-end: 10px;
+    padding-block-start: 40px 10px;
   }
 
   .section:last-child {
@@ -426,7 +424,4 @@
     padding-block-start: 30px;
   }
   
-  .footer__title {
-    margin-block: 286px;
-  }
 }
