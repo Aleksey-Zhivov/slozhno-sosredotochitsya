@@ -6,17 +6,15 @@
 
 .page.theme_light {
   --bg-image: url(../images/cover-image-light.png);
+  --bg-color: #FFF1F7;
   --record-appearance: none;
   --menu-color: #353430;
   --menu-color-hovered: rgba(50, 49, 45, 0.40);
   --cover-title-color: #FFC2E6;
   --cover-title-shadow-color: #FF0070;
+  --cover-title-shadow-color-mobile: #FF8DCB;
   --accent-color: #353430;
   --section-title-color: #353430;
   --accent-bg-color: #FF8DCB;
   --article-text-color: #020202;
-  /* сохраните этот селектор в приведённом виде.
-    Так стили написанные ниже будут иметь больший вес,
-    чем стили в медиазапросе предпочтений пользователя
-  */
 }
