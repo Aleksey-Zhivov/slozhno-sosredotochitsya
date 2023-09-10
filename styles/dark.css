@@ -4,19 +4,16 @@
   переключая тему
 */
 
-@media (prefers-color-scheme: dark) {
-  .page {
+.page.theme_dark {
   --bg-image: url(../images/cover-image-dark.png);
   --bg-color: #000028;
   --record-appearance: flex;
   --menu-color: #FF0070;
   --menu-color-hovered: rgb(255, 0, 112, 0.4);
   --cover-title-color: #DB00FF;
-  --cover-title-shadow-color: #FF0070;
   --cover-title-shadow-color-mobile: #FF0070;
   --accent-color: #FF0070;
   --accent-bg-color: #FF0070;
   --section-title-color: #FF0070;
   --article-text-color: #F1B2CE;
-  }
 }

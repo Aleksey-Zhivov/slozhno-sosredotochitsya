@@ -11,10 +11,25 @@
   --menu-color: #353430;
   --menu-color-hovered: rgba(50, 49, 45, 0.40);
   --cover-title-color: #FFC2E6;
-  --cover-title-shadow-color: #FF0070;
   --cover-title-shadow-color-mobile: #FF8DCB;
   --accent-color: #353430;
   --section-title-color: #353430;
   --accent-bg-color: #FF8DCB;
   --article-text-color: #020202;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-image: url(../images/cover-image-dark.png);
+    --bg-color: #000028;
+    --record-appearance: flex;
+    --menu-color: #FF0070;
+    --menu-color-hovered: rgb(255, 0, 112, 0.4);
+    --cover-title-color: #DB00FF;
+    --cover-title-shadow-color-mobile: #FF0070;
+    --accent-color: #FF0070;
+    --accent-bg-color: #FF0070;
+    --section-title-color: #FF0070;
+    --article-text-color: #F1B2CE;   
+    }
 }
